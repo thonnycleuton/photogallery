@@ -13,12 +13,14 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import include, path, re_path
 
 from django_registration.backends.one_step.views import RegistrationView
 
 from core.views import IndexTemplateView
+from photogallery import settings
 from users.forms import CustomUserForm
 
 
@@ -55,4 +57,4 @@ urlpatterns = [
          include("rest_auth.registration.urls")),
 
     re_path(r"^.*$", IndexTemplateView.as_view(), name="entry-point")
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -23,10 +23,14 @@ export default {
     };
   },
   methods: {
+    setPageTitle(title) {
+      document.title = title;
+    },
     getPhotoData() {
       let endpoint = "/api/photos/" + this.id + "/";
       apiService(endpoint).then(data => {
         this.photo = data;
+        this.setPageTitle(data.content)
       });
     }
   },

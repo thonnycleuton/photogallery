@@ -13,7 +13,8 @@
             >{{ photo.title }}
           </router-link>
         </h2>
-        <p>Answers: {{ photo.id }}</p>
+        <img :src="`${publicPath}media/photos/Screenshot_from_2021-02-13_11-14-46.png`" alt="Picture made by you" />
+        <p>Answers: {{ photo.photo }}</p>
         <p>Likes: {{ photo.likes_count }}</p>
         <hr>
       </div>
@@ -27,7 +28,8 @@ export default {
   name: "home",
   data() {
     return {
-      photos: []
+      photos: [],
+      publicPath: process.env.BASE_URL
     };
   },
   methods: {

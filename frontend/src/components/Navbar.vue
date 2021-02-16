@@ -4,7 +4,7 @@
       <router-link
         :to="{ name: 'home' }"
         class="navbar-brand"
-      >QuestionTime
+      >Tom and Gisele Photo Gallery
       </router-link>
 
       <div class="collapse navbar-collapse">
@@ -14,6 +14,13 @@
               :to="{ name: 'home' }"
               class="btn btn-sm btn-success"
             >Home
+            </router-link>
+          </li>
+          <li class="nav-item mx-1">
+            <router-link
+              :to="{ name: 'photo-editor' }"
+              class="btn btn-sm btn-danger"
+              >Send us you pic
             </router-link>
           </li>
           <li class="nav-item">

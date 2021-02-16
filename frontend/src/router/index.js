@@ -2,6 +2,7 @@ import Vue from "vue";
 import Router from "vue-router";
 import Home from "@/views/Home";
 import Photo from "@/views/Photo";
+import PhotoEditor from "@/views/PhotoEditor";
 
 Vue.use(Router);
 
@@ -17,6 +18,12 @@ export default new Router({
       path: "/photo/:id",
       name: "photo",
       component: Photo,
+      props: true
+    },
+    {
+      path: "post",
+      name: "photo-editor",
+      component: PhotoEditor,
       props: true
     }
   ]
