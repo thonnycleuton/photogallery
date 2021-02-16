@@ -16,13 +16,6 @@
             >Home
             </router-link>
           </li>
-          <li class="nav-item mx-1">
-            <router-link
-              :to="{ name: 'about' }"
-              class="btn btn-sm btn-danger"
-            >About
-            </router-link>
-          </li>
           <li class="nav-item">
             <a class="btn btn-sm btn-outline-secondary" href="/accounts/logout/">Logout</a>
           </li>

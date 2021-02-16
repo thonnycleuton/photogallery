@@ -6,9 +6,16 @@
         <p class="mb-0">Posted by:
           <span class="question-author">{{ photo.author }}</span>
         </p>
-        <p>Answers: {{ photo.comments_count }}</p>
+        <h2>
+          <router-link
+            :to="{ name: 'photo', params: { id: photo.id } }"
+            class="question-link"
+            >{{ photo.title }}
+          </router-link>
+        </h2>
+        <p>Answers: {{ photo.id }}</p>
+        <p>Likes: {{ photo.likes_count }}</p>
         <hr>
-      </div>
       </div>
     </div>
   </div>
@@ -34,7 +41,6 @@ export default {
   },
   created() {
     this.getPhotos();
-    console.log(this.photos)
   }
 };
 </script>
