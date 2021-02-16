@@ -12,8 +12,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 import os
 from pathlib import Path
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 # Quick-start development settings - unsuitable for production
@@ -41,15 +40,13 @@ INSTALLED_APPS = [
 
     'rest_framework',
     'rest_framework.authtoken',
-
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-
     'rest_auth',
     'rest_auth.registration',
-
     'crispy_forms',
+    'webpack_loader',
     'users.apps.UsersConfig',
     'photos.apps.PhotosConfig',
 ]
@@ -136,7 +133,12 @@ LOGOUT_REDIRECT_URL = "/"
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
+
+STATIC_ROOT = os.path.join(BASE_DIR, '')
 STATIC_URL = '/static/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
 
 AUTH_USER_MODEL = 'users.CustomUser'
 
@@ -158,4 +160,13 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAuthenticated',
     ),
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 6 # 10 could be a good value to assign in production. Remember: this currently also applies to answers
+}
+
+WEBPACK_LOADER = {
+    'DEFAULT': {
+        'BUNDLE_DIR_NAME': 'dist/',
+        'STATS_FILE': os.path.join(BASE_DIR, 'frontend', 'webpack-stats.json'),
+    }
 }
