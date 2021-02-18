@@ -88,7 +88,12 @@ WSGI_APPLICATION = 'photogallery.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'djongo',
-        'NAME': 'gallery',
+        'NAME': 'sample_collection',
+        'host': 'mongodb+srv://photogallery:<password>@cluster0.mlo8u.mongodb.net/myFirstDatabase?retryWrites=true&w'
+                '=majority',
+        'username': 'photogallery',
+        'password': 'M4r4p0v4.',
+        'authMechanism': 'SCRAM',
     }
 }
 
