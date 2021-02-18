@@ -134,11 +134,15 @@ LOGOUT_REDIRECT_URL = "/"
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 
-STATIC_ROOT = os.path.join(BASE_DIR, '')
 STATIC_URL = '/static/'
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "frontend/src/assets"),
+    os.path.join(BASE_DIR, "frontend/dist"),
+]
+
 MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'frontend/dist/media/photos')
 
 AUTH_USER_MODEL = 'users.CustomUser'
 

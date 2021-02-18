@@ -6,7 +6,7 @@ from django.conf import settings
 class Photo(models.Model):
 
     title = models.CharField(max_length=100)
-    photo = models.ImageField(upload_to="photos", blank=True)
+    photo = models.ImageField(blank=True, null=False)
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='photos')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

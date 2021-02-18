@@ -1,33 +1,17 @@
 {% extends "base.html" %}
-{% load render_bundle from webpack_loader %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>QuestionTime</title>
-</head>
-<body>
+{% load static %}
 
-    <h1>Vue JS</h1>
+{% block style %}
+    <link type="text/css" href="{% static 'bundle.css' %}">
+{% endblock %}
 
-    <noscript>
-        <strong>We're sorry but frontend doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
-    </noscript>
 {% block content %}
 <noscript>
     <strong>We're sorry but frontend doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
 </noscript>
-
-    <div id="app"></div>
 <div id="app"></div>
+{% endblock %}
 
-    <!-- built files will be auto injected -->
-    {% render_bundle 'app' %}
-
-</body>
-</html>
-<!-- built files will be auto injected -->
-{% render_bundle 'app' %}
+{% block js %}
+    <script type="text/javascript" src="{% static 'bundle.js' %}"></script>
 {% endblock %}
